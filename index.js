@@ -10,7 +10,7 @@ $(document).keypress(function () {
     if (gameStart) {
         $("h1").text("LEVEL " + level);
         nextSequence();
-        gameStart = false;
+        gameStart = false;        // this is used bcz if game starts by key press then in btween game key press cant be used until game is over
     }
 })
 
@@ -26,9 +26,9 @@ $("div[type='button']").click(function () {
 });
 
 function checkAnswer(currentLevel) {
-    // console.log(currentLevel);
-    // console.log("game :"+gamePattern);
-    // console.log("user :"+userClickedPattern);
+    console.log(currentLevel);
+    console.log("game :" + gamePattern);
+    console.log("user :" + userClickedPattern);
     if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
         if (gamePattern.length === userClickedPattern.length) {             // here it will automstically come out then we will click rembered pattern
             setTimeout(function () {
@@ -40,10 +40,10 @@ function checkAnswer(currentLevel) {
         playSound("wrong");
         $("body").addClass("game-over");
         $("h1").text("GAME OVER , Press Any Key To Restart");
-        setTimeout(function(){
-        $("body").removeClass("game-over"); 
-        },200);
-        
+        setTimeout(function () {
+            $("body").removeClass("game-over");
+        }, 200);
+
         startOver();
     }
 
@@ -80,8 +80,32 @@ function animatePress(currentColour) {
 }
 
 //to restart game 
-function startOver(){
+function startOver() {
     level = 0;
     gameStart = true;
     gamePattern = [];
+}
+
+/* 
+        only for mobile in which button is there
+*/
+
+$("#mobStart").click(function () {
+    $("#mobStart").addClass("pressed");
+    setTimeout(function () {
+        $("#mobStart").removeClass("pressed");
+    }, 50)
+    if (gameStart) {
+        $("h1").text("LEVEL " + level);
+        nextSequence();
+        gameStart = false;        // this is used bcz if game starts by key press then in btween game key press cant be used until game is over
+    }
+})
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // true for mobile device
+    // $("img").hide();
+} else {
+    // false for not mobile device
+    $("img").hide();
 }
