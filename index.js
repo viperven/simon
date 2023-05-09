@@ -102,6 +102,8 @@ $("#mobStart").click(function () {
     }
 })
 
+// code to check mobile or desktop
+
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     // true for mobile device
     // $("img").hide();

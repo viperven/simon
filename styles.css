@@ -1,4 +1,8 @@
 body {
+  background-image: url(background.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   text-align: center;
   background-color: #011F3F;
 }
@@ -7,7 +11,12 @@ body {
   font-family: 'Press Start 2P', cursive;
   font-size: 2rem;
   margin:  2%;
-  color: #FEF2BF;
+  color: whitesmoke;
+}
+
+#brand{
+  font-size: 2rem;
+  color: white;
 }
 
 .container {
@@ -22,7 +31,7 @@ body {
   display: inline-block;
   height: 200px;
   width: 200px;
-  border: 10px solid black;
+  border: 10px solid #F6F1F1;
   border-radius: 20%;
 }
 
